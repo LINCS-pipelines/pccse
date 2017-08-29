@@ -1,9 +1,13 @@
 # pccse-docker
-### mema: Docker container for running MEMA vignettes in RStudio
+### pccse-docker: Docker container for running PCCSE(P100 and GCP) vignettes in RStudio
 
-This mema docker image was built based on the validated MEMA R package v1.0.1 (released on 2017-05-16) to run all the R code in the vignettes provided by MEP-LINCS on 2017-05-17 at [`https://github.com/MEP-LINCS/MEMA/tree/master/vignettes`](https://github.com/MEP-LINCS/MEMA/tree/master/vignettes) inside a virtual RStudio.
+This docker image is developed to make a countainer for the processing of P100 and GCP data and generate level 4 of data from level 2.
 
-The docker has been tested on Linux (Ubuntu 14.04 and 16.04), macOS (10.11.6), and Windows (Windows 7 Enterprise). 
+<!---
+This docker image was built based on the validated MEMA R package v1.0.1 (released on 2017-05-16) to run all the R code in the vignettes provided by MEP-LINCS on 2017-05-17 at [`https://github.com/MEP-LINCS/MEMA/tree/master/vignettes`](https://github.com/MEP-LINCS/MEMA/tree/master/vignettes) inside a virtual RStudio.
+The docker has been tested for all of the on Linux (Ubuntu 14.04 and 16.04), macOS (10.11.6), and Windows (Windows 7 Enterprise). 
+-->
+
 
 ---
 #### Installation of Docker
@@ -18,15 +22,15 @@ Windows: follow [`the instructions`](https://docs.docker.com/toolbox/toolbox_ins
 ---
 To obtain the docker image and run the container,
 ```
-[sudo] docker pull ucbd2k/mema
+[sudo] docker pull ucbd2k/pccse-docker
 ```
 Linux users may need to use `sudo` to run Docker.
 
-We recommend a minimum of 8 GB memory to run the  MEMA vignettes. On Mac and Windows the memory needs to be manually allocated.
-
+<!---
+We recommend a minimum of 1 GB memory to run the pipelene. 
 On Mac, click Docker whale icon in Launchpad or Applications folder to start Docker, then click Docker icon in top status bar and choose Preferences -> Advanced to increase Memory to 8.0 GB. 
-
 On Windows, double-click Open Oracle VM VirtualBox icon on desktop, choose Settings -> System -> Motherboard to increase Base Memory to 8192 MB. 
+--->
 
 To run the container execute the following command:
 
