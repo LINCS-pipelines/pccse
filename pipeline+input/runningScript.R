@@ -1,9 +1,5 @@
 
-setwd("./example/")
-system("./start.bash")
-source("pccse_processing.R")
-
-setwd("./example/")
+setwd("./pipeline+input/")
 system("./start.bash")
 source("pccse_processing.R")
 
