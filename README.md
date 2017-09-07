@@ -57,7 +57,20 @@ Host URL on Ubuntu and Mac is `localhost`, if accessed locally. On Windows, the 
 ---
 ### Execute the processing pipeline
 
-After entring the rstudio environment, On the "Files" widget in the rstudio, go to "pipeline+process". In this folder you can see three files which are the processing pipeline or "pccse_processing.R" and two input files to execute the processing pipeline.
+After entring the rstudio environment, On the "Files" widget in the rstudio, go to "pipeline+process".
+---
+#### Execute the processing pipeline 
+We previously have experienced some difficulties in running the pipeline locally. The problem arised from reading the json format in the input files. In this case, download the level 2 of data from https://panoramaweb.org/labkey/project/LINCS/P100/begin.view. Put the gct file in a folder, make a 'start.bash' file with the following lines in it in the folder that you chave put the downloaded files from panorama. The example of this file is provided in this docker as well.
+```
+#!/bin/bash
+find . -name "*.gct" -exec sed -i.back 's/\"/\"\"/g; s/[{]/\"\{/g; s/\}/\}\"/g; ' {} \;
+```
+Run the following comand
+```
+./start.bash
+```
+This does the magic and changes the input files to readable files in R. 
+In this folder you can see three files which are the processing pipeline or "pccse_processing.R" and two input files to execute the processing pipeline.
 
 First run the following comand in the rstudio console:
 ```
@@ -79,18 +92,7 @@ GCPprocessGCTMaster("./pipeline+input/<input GCP file>",log2=FALSE)
 ```
 for GCP data.
 
----
-### Execute the processing pipeline without docker
-We previously have experienced some difficulties in running the pipeline locally. The problem arised from reading the json format in the input files. In this case, download the level 2 of data from https://panoramaweb.org/labkey/project/LINCS/P100/begin.view. Put the gct file in a folder, make a 'start.bash' file with the following lines in it in the folder that you chave put the downloaded files from panorama. The example of this file is provided in this docker as well.
-```
-#!/bin/bash
-find . -name "*.gct" -exec sed -i.back 's/\"/\"\"/g; s/[{]/\"\{/g; s/\}/\}\"/g; ' {} \;
-```
-Run the following comand
-```
-./start.bash
-```
-This does the magic and changes the input files to readable files in R. 
+
 
 
 
