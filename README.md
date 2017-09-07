@@ -43,12 +43,12 @@ docker ps -a
 To run the container execute the following command:
 
 ```
-[sudo] docker run -d -p <an available port>:8787 ucbd2k/pccse-docker
+[sudo] docker run -d -p <an available port>:8787 ucbd2k/pccse:v3
 ```
 or
 
 ```
-[sudo] docker run -d -p 8787:8787 ucbd2k/pccse-docker
+[sudo] docker run -d -p 8787:8787 ucbd2k/pccse:v3
 ```
 
 To start an RStudio session, open a browser and type in the address bar `http://localhost:8787` on Mac or Linux systems when 8787 port is used.
