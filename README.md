@@ -1,5 +1,5 @@
 # pccse-docker
-## pccse-docker: Docker container for running PCCSE(P100 and GCP) processing pipelines in RStudio
+## pccse: Docker container for running PCCSE(P100 and GCP) processing pipelines in RStudio
 
 This docker image is developed to make a countainer for the processing of P100 and GCP data and generate level 4 of data from level 2. The docker is tested on August-31-2017 on the level 2 of P100 and GCP data from panorama.
 
@@ -23,7 +23,7 @@ Windows: follow [`the instructions`](https://docs.docker.com/toolbox/toolbox_ins
 ### Download the docker container
 To obtain the docker image and run the container,
 ```
-[sudo] docker pull ucbd2k/pccse-docker
+[sudo] docker pull ucbd2k/pccse:v3
 ```
 Linux users may need to use `sudo` to run Docker.
 
@@ -58,31 +58,12 @@ Host URL on Ubuntu and Mac is `localhost`, if accessed locally. On Windows, the 
 ### Execute the processing pipeline
 
 After entring the rstudio environment, On the "Files" widget in the rstudio, go to "pipeline+process".
----
-#### Execute the processing pipeline 
-We previously have experienced some difficulties in running the pipeline locally. The problem arised from reading the json format in the input files. In this case, download the level 2 of data from https://panoramaweb.org/labkey/project/LINCS/P100/begin.view. Put the gct file in a folder, make a 'start.bash' file with the following lines in it in the folder that you chave put the downloaded files from panorama. The example of this file is provided in this docker as well.
-```
-#!/bin/bash
-find . -name "*.gct" -exec sed -i.back 's/\"/\"\"/g; s/[{]/\"\{/g; s/\}/\}\"/g; ' {} \;
-```
-Run the following comand
-```
-./start.bash
-```
-This does the magic and changes the input files to readable files in R. 
-In this folder you can see three files which are the processing pipeline or "pccse_processing.R" and two input files to execute the processing pipeline.
 
-First run the following comand in the rstudio console:
-```
-source("./pipeline+input/pccse_processing.R")
-```
-Then you can run the provided examples via:
-```
-P100processGCTMaster("./pipeline+input/LINCS_P100_DIA_Plate53_annotated_minimized_2017-08-30_09-40-00.gct",log2=FALSE)
-GCPprocessGCTMaster("./pipeline+input/LINCS_GCP_Plate53_annotated_minimized_2017-08-17_14-57-14.gct",log2=FALSE)
-```
-The processed output files (level 4) will be gernerated in the same folder.
-In the same fashion you can download level 2 data from panorama and put it in the `pipeline+input` and run the following line of codes
+In this folder you can see five files which are the processing pipeline or "pccse_processing.R" a wrapper over the processing pipeline that runs two examples for the P100 and GCP level 2 data, "running_script.R", a bash file that makes necessary changes in the input file, "start.bash", and two input files to execute the processing pipeline.
+
+To run the examples open "running_script.R" and run the file. It generated two backup files for the input files and two processed or level 4 data from the examples in the same folder. 
+
+In the same fashion you can download level 2 data from panorama and put it in the `pipeline+input`, then change the corresponding lines in the "running_script.R" to: 
 ```
 P100processGCTMaster("./pipeline+input/<input P100 file>",log2=FALSE)
 ```
@@ -92,7 +73,20 @@ GCPprocessGCTMaster("./pipeline+input/<input GCP file>",log2=FALSE)
 ```
 for GCP data.
 
+---
+#### Execute the processing pipeline on a local machine
 
-
-
-
+Download the level 2 of data from https://panoramaweb.org/labkey/project/LINCS/P100/begin.view. Put the gct file in a folder, make a 'start.bash' file with the following lines in it in the folder that you chave put the downloaded files from panorama. The example of this file is provided in this docker as well.
+```
+#!/bin/bash
+find . -name "*.gct" -exec sed -i.back 's/\"/\"\"/g; s/[{]/\"\{/g; s/\}/\}\"/g; ' {} \;
+```
+Change the permision of the bash file
+```
+chmod +x start.bash
+```
+Run the following comand
+```
+./start.bash
+```
+This does the magic and changes the input files to readable files in R. 
