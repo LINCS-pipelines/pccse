@@ -51,20 +51,20 @@ or
 [sudo] docker run -d -p 8787:8787 ucbd2k/pccse:v3
 ```
 
-To start an RStudio session, open a browser and type in the address bar `http://localhost:8787` on Mac or Linux systems when 8787 port is used.
+To start an RStudio session, open a browser and type in the address bar `http://localhost:8787` on Mac or Linux systems when 8787 port is used. Use `rstudio` for the user name and password.
 
 Host URL on Ubuntu and Mac is `localhost`, if accessed locally. On Windows, the IP is shown when Docker is launched by double-clicking the Docker Quickstart Terminal icon on desktop, or it can be obtained from the output of `docker-machine ls` in the interactive shell window.
 
 ---
 ### Execute the processing pipeline
 
-After entring the rstudio environment, On the "Files" widget in the rstudio, go to "pipeline+process".
+After entering the rstudio environment, on the "Files" tab in the lower right panel in the RStudio, go to "pipeline+input".
 
 In this folder you can see five files which are the processing pipeline or "pccse_processing.R" a wrapper over the processing pipeline that runs two examples for the P100 and GCP level 2 data, "running_script.R", a bash file that makes necessary changes in the input file, "start.bash", and two input files to execute the processing pipeline.
 
 To run the examples open "running_script.R" and run the file. It generated two backup files for the input files and two processed or level 4 data from the examples in the same folder. 
 
-In the same fashion you can download level 2 data from panorama and put it in the `pipeline+input`, then change the corresponding lines in the "running_script.R" to: 
+In the same fashion you can download level 2 data from Panorama:https://panoramaweb.org/labkey/project/LINCS/P100/begin.view and put it in the `pipeline+input`, then change the corresponding lines in the "running_script.R" to: 
 ```
 P100processGCTMaster("./pipeline+input/<input P100 file>",log2=FALSE)
 ```
@@ -75,7 +75,7 @@ GCPprocessGCTMaster("./pipeline+input/<input GCP file>",log2=FALSE)
 for GCP data.
 
 ---
-#### Execute the processing pipeline on a local machine
+#### How to execute the processing pipeline on a local machine other than using docker
 
 Download the level 2 of data from https://panoramaweb.org/labkey/project/LINCS/P100/begin.view. Put the gct file in a folder, make a 'start.bash' file with the following lines in it in the folder that you chave put the downloaded files from panorama. The example of this file is provided in this docker as well.
 ```
@@ -90,4 +90,4 @@ Run the following comand
 ```
 ./start.bash
 ```
-This does the magic and changes the input files to readable files in R. 
+This does the magic and changes the input files to readable files in R. Then you can use the "pccse_processing.R" script to run the pipeline.
