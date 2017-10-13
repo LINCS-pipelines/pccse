@@ -1,4 +1,4 @@
-# pccse-docker
+# pccse
 
 ## pccse: Docker container for running PCCSE(P100 and GCP) processing pipelines in RStudio
 
