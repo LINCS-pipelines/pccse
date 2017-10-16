@@ -74,20 +74,4 @@ GCPprocessGCTMaster("./pipeline+input/<input GCP file>",log2=FALSE)
 ```
 for GCP data.
 
----
-#### How to execute the processing pipeline on a local machine other than using docker
 
-Download the level 2 of data from https://panoramaweb.org/labkey/project/LINCS/P100/begin.view. Put the gct file in a folder, make a 'start.bash' file with the following lines in it in the folder that you chave put the downloaded files from panorama. The example of this file is provided in this docker as well.
-```
-#!/bin/bash
-find . -name "*.gct" -exec sed -i.back 's/\"/\"\"/g; s/[{]/\"\{/g; s/\}/\}\"/g; ' {} \;
-```
-Change the permision of the bash file
-```
-chmod +x start.bash
-```
-Run the following comand
-```
-./start.bash
-```
-This does the magic and changes the input files to readable files in R. Then you can use the "pccse_processing.R" script to run the pipeline.
