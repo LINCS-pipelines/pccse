@@ -16,12 +16,7 @@ RUN apt-get update -qq && \
     wget
 
 
-# Set the working directory to /app
-#WORKDIR /app
-
 #RUN echo 'install.packages(c("jsonlite"), repos="http://cran.us.r-project.org", dependencies=TRUE)' 
 
 RUN R -e "install.packages(c('jsonlite'), repos='http://cran.us.r-project.org')"
 
-# Copy the current directory contents into the container at /app
-#ADD . /app
