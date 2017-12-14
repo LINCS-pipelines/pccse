@@ -19,4 +19,3 @@ RUN apt-get update -qq && \
 #RUN echo 'install.packages(c("jsonlite"), repos="http://cran.us.r-project.org", dependencies=TRUE)' 
 
 RUN R -e "install.packages(c('jsonlite'), repos='http://cran.us.r-project.org')"
-
