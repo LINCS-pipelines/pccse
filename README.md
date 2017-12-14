@@ -2,12 +2,7 @@
 
 ## pccse: Docker container for running PCCSE(P100 and GCP) processing pipelines in RStudio
 
-This docker image is developed to make a countainer for the processing of P100 and GCP data and generate level 4 of data from level 2. The docker is tested on August-31-2017 on the level 2 of P100 and GCP data from panorama.
-
-<!---
-This docker image was built based on the validated MEMA R package v1.0.1 (released on 2017-05-16) to run all the R code in the processing pipeline provided by MEP-LINCS on 2017-05-17 at  inside a virtual RStudio.
-The docker has been tested for all of the on Linux (Ubuntu 14.04 and 16.04), macOS (10.11.6), and Windows (Windows 7 Enterprise). 
--->
+This docker image is developed to make a countainer for the processing of P100 and GCP data and generate level 4 of data from level 2. The docker is tested on August-31-2017 on the level 2 of P100 and GCP data from panorama using multiple operating systems (Ubuntu 14.04 and 16.04, macOS 10.11.6 and Windows 7 Enterprise).
 
 
 ---
