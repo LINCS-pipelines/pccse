@@ -15,6 +15,9 @@ Mac: follow [`the instructions`](https://store.docker.com/editions/community/doc
 
 Windows: follow [`the instructions`](https://docs.docker.com/toolbox/toolbox_install_windows/) to install [`Docker Tookbox`](https://download.docker.com/win/stable/DockerToolbox.exe) on Windows.
 
+### For list of useful docker commands please see:
+https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
+
 ---
 ### Download the docker container
 To obtain the docker image and run the container,
