@@ -70,7 +70,7 @@ GCPprocessGCTMaster("LINCS_GCP_Plate44_annotated_minimized_2017-04-18_16-53-17.g
 P100processGCTMaster("LINCS_P100_DIA_Plate53_annotated_minimized_2017-08-30_09-40-00.gct",log2=FALSE)
 
 ```
-It generated two backup files for the input files and two processed or level 4 data from the examples in the same folder. 
+It generates two backup files for the input files and two processed or level 4 data from the examples in the same folder. 
 
 ---
 ### Please be advised
