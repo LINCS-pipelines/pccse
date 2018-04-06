@@ -58,9 +58,21 @@ Host URL on Ubuntu and Mac is `localhost`, if accessed locally. On Windows, the 
 
 After entering the rstudio environment, on the "Files" tab in the lower right panel in the RStudio, go to "pipeline+input".
 
-In this folder you can see five files which are the processing pipeline or "pccse_processing.R" a wrapper over the processing pipeline that runs two examples for the P100 and GCP level 2 data, "running_script.R", a bash file that makes necessary changes in the input file, "start.bash", and two input files to execute the processing pipeline.
+In this folder you can see five files which are the processing pipeline or "pccse_processing.R" a wrapper over the processing pipeline that runs two examples for the P100 and GCP level 2 data, "running_script.R", a bash file that makes necessary changes in the input files, "start.bash", and two input files to execute the processing pipeline.
 
-To run the examples open "running_script.R" and run the file. It generated two backup files for the input files and two processed or level 4 data from the examples in the same folder. 
+To run the examples open "running_script.R" and run the file. 
+```
+setwd("./pipeline+input/")
+system("./start.bash")
+source("pccse_processing.R")
+
+GCPprocessGCTMaster("LINCS_GCP_Plate44_annotated_minimized_2017-04-18_16-53-17.gct",log2=FALSE)
+P100processGCTMaster("LINCS_P100_DIA_Plate53_annotated_minimized_2017-08-30_09-40-00.gct",log2=FALSE)
+
+```
+It generated two backup files for the input files and two processed or level 4 data from the examples in the same folder. 
+##Please be adviced
+> The start.bash should be run and run only once for each input file, so if you want to get the processed file for the same input, please remove the input file and the two backup files that are already generated and upload the input file again and follow the steps.
 
 In the same fashion you can download level 2 data from Panorama:https://panoramaweb.org/labkey/project/LINCS/P100/begin.view and put it in the `pipeline+input`, then change the corresponding lines in the "running_script.R" to: 
 ```
