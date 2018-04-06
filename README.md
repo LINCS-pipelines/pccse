@@ -71,7 +71,9 @@ P100processGCTMaster("LINCS_P100_DIA_Plate53_annotated_minimized_2017-08-30_09-4
 
 ```
 It generated two backup files for the input files and two processed or level 4 data from the examples in the same folder. 
-##Please be adviced
+
+---
+### Please be advised
 > The start.bash should be run and run only once for each input file, so if you want to get the processed file for the same input, please remove the input file and the two backup files that are already generated and upload the input file again and follow the steps.
 
 In the same fashion you can download level 2 data from Panorama:https://panoramaweb.org/labkey/project/LINCS/P100/begin.view and put it in the `pipeline+input`, then change the corresponding lines in the "running_script.R" to: 
