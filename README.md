@@ -76,7 +76,7 @@ It generated two backup files for the input files and two processed or level 4 d
 ### Please be advised
 > The start.bash should be run and run only once for each input file, so if you want to get the processed file for the same input, please remove the input file and the two backup files that are already generated and upload the input file again and follow the steps.
 
-In the same fashion you can download level 2 data from Panorama:https://panoramaweb.org/labkey/project/LINCS/P100/begin.view and put it in the `pipeline+input`, then change the corresponding lines in the "running_script.R" to: 
+In the same fashion you can download level 2 data from Panorama:https://panoramaweb.org/labkey/project/LINCS/P100/begin.view and put it in the `pipeline+input`, it is better to delete unnecessary input files in the folder, then change the corresponding lines in the "running_script.R" to: 
 ```
 P100processGCTMaster("./pipeline+input/<input P100 file>",log2=FALSE)
 ```
